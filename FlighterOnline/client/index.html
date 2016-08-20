@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/update.js"></script>
+    <script src="js/client.js"></script>
+    <script src="js/animate.js"></script>
+    <script src="js/touch.js"></script>
+    <script src="/js/draw.js"></script>
+    <script src="/js/main.js"></script>
+
+    <title>Flighter Online</title>
+</head>
+
+<body>
+    <div class="noScroll">
+        <canvas id="canvas"></canvas>
+    </div>
+
+
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        var isfullScreen = false;
+        function fullScreen() {
+            if(isfullScreen) return;
+            var el = document.documentElement;
+            var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen;
+            rfs.call(el);
+            isfullScreen = true;
+        }
+        canvas.addEventListener("click", fullScreen);
+        
+        setup();
+    </script>
+</body>
+
+
+</html>
